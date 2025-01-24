@@ -1,26 +1,33 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 import NavbarBootstrap from './components/NavbarBootstrap.vue';
-import UseCard from './components/UseCard.vue';
+import UserCard from './components/UserCard.vue';
 </script>
 
 <template>
-  <div>
+  <!-- Vista Screen -->
+  <div class="screen">
     <!-- Barra lateral fija -->
     <div class="sidebar" style="margin-left: 3rem; margin-top: 1.2rem;">
-      <UseCard />
+      <UserCard />
     </div>
 
-    <!-- Menu Navbar fijo -->
-    <div class="navbar fixed-top" style="margin-left: 2rem;" >
-      <NavbarBootstrap />
-    </div>
-    
-    <!-- Contenido principal desplazable -->
-    <div class="main-content" style="margin-top: 14rem; margin-left: 21rem;">
-      <transition name="fade">
-        <RouterView />
-      </transition>
+    <!-- Vista Pagina -->
+    <div class="main-page">
+      <!-- Header de la pagina -->
+      <div class="header" style="margin-left: 2rem;" >
+        <NavbarBootstrap />
+      </div>     
+      <!-- Contenido principal de la pagina -->
+      <div class="main-content" style="margin-top: 14rem; margin-left: 21rem;">
+        <transition name="fade">
+          <RouterView />
+        </transition>
+      </div>
+      <!-- Footer de la pagina -->
+      <div class="footer" style="margin-left: 2rem;" >
+        <NavbarBootstrap />
+      </div> 
     </div>
   </div>
 </template>

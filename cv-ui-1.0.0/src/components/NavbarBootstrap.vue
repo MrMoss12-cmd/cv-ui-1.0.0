@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top" style="margin-left: 25rem; margin-top: 3rem;">
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm " style="width: 40rem; padding-right: 2rem; margin-left: 1rem; margin-top: 0.4rem;">
       <div class="container-fluid">
         <!-- Logo / Home Icon -->
         <a class="navbar-brand text-warning fw-bold" href="/">
@@ -71,6 +71,7 @@
   .navbar{
     margin-left: 50rem;
     margin-top: 2rem;
+    
   }
   body {
     padding-top: 70px; /* Ajusta este valor según la altura del navbar */
