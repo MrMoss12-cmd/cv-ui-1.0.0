@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-light shadow-sm " style="width: 40rem; padding-right: 2rem; margin-left: 1rem; margin-top: 0.4rem;">
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm " >
       <div class="container-fluid">
         <!-- Logo / Home Icon -->
         <a class="navbar-brand text-warning fw-bold" href="/">
@@ -52,6 +52,7 @@
   
   <script setup>
   const links = [
+    { name: "🏠", href: "/" },
     { name: "Resume", href: "/resume" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Blog", href: "/blog" },
@@ -67,23 +68,35 @@
   </script>
   
   <style scoped>
+
+
   /* Ajusta el contenido principal para evitar que quede oculto detrás del navbar */
   .navbar{
-    margin-left: 50rem;
-    margin-top: 2rem;
+    margin-left: 0rem;
+    margin-top: 0rem;
+    padding:0;
     
   }
-  body {
-    padding-top: 70px; /* Ajusta este valor según la altura del navbar */
-  }
-  
+
+
   .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 0.5rem;
+  }
+
+  .navbar-nav {
+    font-size: 0.6rem;
   }
   
-  .nav-link {
-    margin-left: 1rem;
+  /*Selector del elemento home */
+  .navbar-nav li:first-child {
+    background-color: yellow;
+    margin-left: -2.1rem;
+    width: 1.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
   
   .btn {
     border-radius: 20px;
