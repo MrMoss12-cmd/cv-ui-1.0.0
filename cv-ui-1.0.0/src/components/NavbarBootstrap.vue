@@ -1,57 +1,36 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top" style="margin-left: 25rem; margin-top: 3rem;">
-      <div class="container-fluid">
-        <!-- Logo / Home Icon -->
-        <a class="navbar-brand text-warning fw-bold" href="/">
-          <i class="bi bi-house-fill"></i>
-        </a>
-  
-        <!-- Botón de colapso para pantallas pequeñas -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <!-- Contenido del navbar -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li v-for="link in links" :key="link.name" class="nav-item">
-              <a class="nav-link text-dark fw-semibold" :href="link.href">{{ link.name }}</a>
-            </li>
-          </ul>
-  
-          <!-- Redes sociales -->
-          <div class="d-flex align-items-center">
-            <a
-              v-for="social in socialLinks"
-              :key="social.icon"
-              class="text-dark mx-2"
-              :href="social.href"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i :class="`bi ${social.icon} fs-5`"></i>
-            </a>
-          </div>
-  
-          <!-- Botón Hire Me -->
-          <button class="btn btn-warning btn-sm ms-3">
-            Hire Me <i class="bi bi-telegram"></i>
-          </button>
-        </div>
-      </div>
-    </nav>
-  </template>
+    <!-- Navbar -->
+    <nav class="navbar">
+  <!-- Ícono de inicio -->
+  <div class="home-icon">
+    <i class="bi bi-house"></i>
+  </div>
+
+  <!-- Enlaces del menú -->
+  <ul class="navbar-nav">
+    <li v-for="link in links" :key="link.name" class="nav-item">
+      <a class="nav-link" :href="link.href">{{ link.name }}</a>
+    </li>
+  </ul>
+
+  <!-- Íconos sociales -->
+  <div class="social-links">
+    <a v-for="social in socialLinks" :key="social.icon" :href="social.href" target="_blank">
+      <i :class="`bi ${social.icon}`"></i>
+    </a>
+  </div>
+
+  <!-- Botón "Hire Me" -->
+  <button class="btn-hire">
+    Hire Me <i class="bi bi-telegram"></i>
+  </button>
+</nav>
+ 
+</template>
   
   <script setup>
   const links = [
+    { name: "🏠", href: "/" },
     { name: "Resume", href: "/resume" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Blog", href: "/blog" },
@@ -69,23 +48,98 @@
   <style scoped>
   /* Ajusta el contenido principal para evitar que quede oculto detrás del navbar */
   .navbar{
-    margin-left: 50rem;
-    margin-top: 2rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #f8f9fa;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
   }
-  body {
-    padding-top: 70px; /* Ajusta este valor según la altura del navbar */
+
+  .navbar .home-icon {
+    display: flex;
+    gap: 1.3rem;
+    list-style: none;
   }
-  
-  .navbar-brand {
+
+  .navbar .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+    
+  .navbar .navbar-nav .nav-item {
+    margin: 0;
+  }
+
+  .navbar .navbar-nav .nav-link {
+    text-decoration: none;
+    color:#333;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .navbar .navbar-nav .nav-link:hover {
+    color: #007bff;
+  }
+
+  .navbar .social-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .navbar .social-links a {
+    color: #333;
     font-size: 1.5rem;
+    transition: color 0.3s ease;
   }
-  
-  .nav-link {
-    margin-left: 1rem;
+
+  .navbar .social-links a:hover {
+    color :#007bff;
   }
-  
-  .btn {
+
+  .navbar .btn-hire {
+    background-color: #ffc107;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
     border-radius: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar .btn-hire:hover {
+    background-color: #e0a800;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .navbar .home-icon,
+    .navbar .navbar-nav,
+    .navbar .social-links,
+    .navbar .btn-hire {
+      margin-bottom: 1rem;
+    }
+
+    .navbar .navbar-nav {
+      justify-content: center;
+    }
+
+    .navbar .social-links {
+      justify-content: center;
+    }
   }
   </style>
   
